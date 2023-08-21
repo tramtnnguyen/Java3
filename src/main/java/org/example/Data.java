@@ -1,12 +1,7 @@
 package org.example;
 
-import javax.naming.Name;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlRootElement;
 
-@XmlRootElement(name = "user")
-@XmlAccessorType(XmlAccessType.FIELD)
+
 public class Data {
     private String id;
     private String type;
