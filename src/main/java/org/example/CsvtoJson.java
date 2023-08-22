@@ -10,43 +10,27 @@ import java.util.*;
 
 public class CsvtoJson {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        while (true) {
-                System.out.println("Menu:");
-                System.out.println("1. Option 1");
-                System.out.println("2. Option 2");
-                System.out.println("3. Option 3");
-                System.out.println("0. Exit");
-                System.out.print("Select an option: ");
-                int selectedOption = scanner.nextInt();
-
-
-                switch (selectedOption) {
-                    case 1:
-                        System.out.println("You selected Option 1.");
-                        GetonlyBaseQuestion("/Users/tramtnnguyen/Downloads/DataCollection.csv");
-                        break;
-                    case 2:
-                        System.out.println("You selected Option 2.");
-                        readCsvUsingBufferReader("/Users/tramtnnguyen/Downloads/output.csv");
-                        break;
-                    case 3:
-                        System.out.println("You selected Option 3.");
-                        GetonlyBaseQuestion("/Users/tramtnnguyen/Downloads/DataCollection.csv");
-                        readCsvUsingBufferReader("/Users/tramtnnguyen/Downloads/output.csv");
-                        break;
-                    case 0:
-                        System.out.println("Exiting the program.");
-                        scanner.close();
-                        System.exit(0);
-                    default:
-                        System.out.println("Invalid option.");
-                }
+        int firstArg = 0;
+        if (args.length > 0) {
+            try {
+                firstArg = Integer.parseInt(args[0]);
+            } catch (NumberFormatException e) {
+                System.err.println("Argument" + args[0] + " must be an integer(1,2,3).");
+                System.exit(1);
             }
-
+        }
+        if(firstArg == 1){
+            GetonlyBaseQuestion("/Users/tramtnnguyen/Downloads/DataCollection.csv");
+        }
+        if(firstArg == 2){
+            readCsvUsingBufferReader("/Users/tramtnnguyen/Downloads/output.csv");
+        }
+        if(firstArg == 3){
+            GetonlyBaseQuestion("/Users/tramtnnguyen/Downloads/DataCollection.csv");
+            readCsvUsingBufferReader("/Users/tramtnnguyen/Downloads/output.csv");
+        }
     }
-       // GetonlyBaseQuestion("/Users/tramtnnguyen/Downloads/DataCollection.csv");
-       // readCsvUsingBufferReader("/Users/tramtnnguyen/Downloads/DataCollection.csv");
+
 
 
 
